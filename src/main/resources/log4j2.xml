@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+ 
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} %-5p [%t]: %m%n</Property>
+    </Properties>
+ 
+    <Appenders>
+ 
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+         
+        <RollingFile name="debugLog" fileName="logs/debug.log"
+            filePattern="target/rolling2/dubug-%d{MM-dd-yy-HH-mm-ss}-%i.log">
+	    <LevelRangeFilter minLevel="DEBUG" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>	
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+         
+        <RollingFile name="infoLog" fileName="logs/info.log"
+            filePattern="target/rolling2/info-%d{MM-dd-yy-HH-mm-ss}-%i.log" >
+	    <LevelRangeFilter minLevel="ERROR" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+         
+    </Appenders>
+ 
+    <Loggers>
+       
+                 
+        <Root level="all">
+		<AppenderRef ref="all"  />
+            <AppenderRef ref="debugLog"  />
+		<AppenderRef ref="infoLog"  />
+            <AppenderRef ref="Console"/>
+	    
+        </Root>
+ 
+    </Loggers>
+ 
+</Configuration>

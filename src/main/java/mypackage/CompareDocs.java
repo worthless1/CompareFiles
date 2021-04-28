@@ -15,6 +15,7 @@ public class CompareDocs {
 
     public TreeMap<Integer, String> comparison(String path1, String path2) {
         TreeMap<Integer, String> differences = new TreeMap<>();
+        logger.debug("Start reading files");
 
         try (BufferedReader reader1 = new BufferedReader(new FileReader(path1));
              BufferedReader reader2 = new BufferedReader(new FileReader(path2))) {
@@ -30,7 +31,7 @@ public class CompareDocs {
                     differences.put(count, line2);
                 }
             }
-            logger.debug("files were read successfully, number of lines: " + count);
+            logger.info("Files were read successfully, number of lines: " + count);
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
             logger.error(e);
@@ -44,6 +45,8 @@ public class CompareDocs {
             System.out.printf("%d:<%s>\n", entry.getKey(), entry.getValue());
 
         }
+        logger.debug("Lines printed successfully");
+
     }
 
 }

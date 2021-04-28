@@ -4,13 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-        HashMap<Integer, String> diff = new HashMap<>();
+        TreeMap<Integer, String> diff = new TreeMap<>();
 
         CompareDocs cd = new CompareDocs();
         //checking the number of arguments entered

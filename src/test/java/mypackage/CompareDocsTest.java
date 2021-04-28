@@ -3,6 +3,7 @@ package mypackage;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +17,7 @@ class CompareDocsTest {
     @Test
     public void testComparison() {
         cd.comparison(path1, path2);
-        HashMap<Integer, String> result = new HashMap<>();
+        TreeMap<Integer, String> result = new TreeMap<>();
         result.put(2, "There is something!");
         result.put(3, "Bye!");
         assertEquals(result, cd.comparison(path1, path2));

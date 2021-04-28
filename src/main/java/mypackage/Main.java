@@ -4,11 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.util.HashMap;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
+        HashMap<Integer, String> diff = new HashMap<>();
+
         CompareDocs cd = new CompareDocs();
         //checking the number of arguments entered
         if (args.length < 2) {
@@ -20,7 +23,8 @@ public class Main {
         File file1 = new File(args[0]);
         File file2 = new File(args[1]);
         if (file1.exists() && file2.exists()) {
-            cd.comparison(args[0], args[1]);
+            diff = cd.comparison(args[0], args[1]);
+            cd.print(diff);
         } else {
             logger.error("File" + args[0] + " or " + args[1] + " was not found");
             System.err.printf("Check the spelling of the file name. %s or %s (The specified file cannot be found)", args[0], args[1]);

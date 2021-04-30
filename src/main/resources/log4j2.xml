@@ -37,9 +37,9 @@
        
                  
         <Root level="all">
-		<AppenderRef ref="all"  />
+
             <AppenderRef ref="debugLog"  />
-		<AppenderRef ref="infoLog"  />
+	    <AppenderRef ref="infoLog"  />
             <AppenderRef ref="Console"/>
 	    
         </Root>

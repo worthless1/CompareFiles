@@ -4,18 +4,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.TreeMap;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         TreeMap<Integer, String> diff = new TreeMap<>();
 
         CompareDocs cd = new CompareDocs();
         //checking the number of arguments entered
         if (args.length < 2) {
-            System.err.println("Specify filenames in program arguments!");
+            System.err.println("Specify filenames in the program arguments!");
             logger.error("File names were not specified in program arguments");
             System.exit(0);
         }

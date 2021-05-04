@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         CompareDocs cd = new CompareDocs();
-        List<DiffRow> rows;
+        List<DiffRow> rows = new ArrayList<DiffRow>();
         //checking the number of arguments entered
         if (args.length < 2) {
             System.err.println("Specify filenames in program arguments!");
@@ -32,7 +33,7 @@ public class Main {
                 logger.error(e);
             }
         } else {
-            logger.error("File" + file1 + " or " + file2 + " was not found");
+            logger.error("File " + file1 + " or " + file2 + " was not found");
             System.err.printf("Check the spelling of the file name. %s or %s (The specified file cannot be found)", args[0], args[1]);
         }
 

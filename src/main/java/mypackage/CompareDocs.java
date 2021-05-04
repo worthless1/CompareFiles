@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CompareDocs {
@@ -16,7 +18,7 @@ public class CompareDocs {
     private static final Logger logger = LogManager.getLogger(CompareDocs.class);
 
     public List<DiffRow> comparison(File file1, File file2) throws IOException {
-        List<DiffRow> rows = null;
+        List<DiffRow> rows = new ArrayList<DiffRow>();
         if (file1.equals(file2)) {
             logger.error("The same file names were specified " + file1 + " and " + file2);
             throw new FileNotFoundException("Comparison error: to compare files, you need to specify different file names.");

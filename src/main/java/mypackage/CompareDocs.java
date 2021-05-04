@@ -15,7 +15,7 @@ public class CompareDocs {
 
     private static final Logger logger = LogManager.getLogger(CompareDocs.class);
 
-    public List<DiffRow> Comparison(File file1, File file2) throws IOException {
+    public List<DiffRow> comparison(File file1, File file2) throws IOException {
         List<DiffRow> rows = null;
         if (file1.equals(file2)) {
             logger.error("The same file names were specified " + file1 + " and " + file2);

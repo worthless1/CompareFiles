@@ -25,7 +25,7 @@ public class Main {
         File file2 = new File(args[1]);
         if (file1.exists() && file2.exists()) {
             try {
-                rows = cd.Comparison(file1, file2);
+                rows = cd.comparison(file1, file2);
                 cd.print(rows);
             } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());

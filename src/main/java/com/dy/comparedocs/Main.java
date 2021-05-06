@@ -1,4 +1,4 @@
-package mypackage;
+package com.dy.comparedocs;
 
 import com.github.difflib.text.DiffRow;
 import org.apache.logging.log4j.LogManager;

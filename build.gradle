@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'com.dy.comparedocs'
 version '1.0-SNAPSHOT'
 
 
@@ -21,7 +21,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes('Main-Class': 'mypackage.Main',
+        attributes('Main-Class': 'com.dy.comparedocs.Main',
                 'Class-Path': configurations.runtimeClasspath.files.collect { "lib/" + it.getName() }.join(' ')
         )
     }
@@ -34,8 +34,6 @@ test {
         events "passed", "skipped", "failed"
     }
 }
-
-compileJava.options.encoding = 'UTF-8'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'

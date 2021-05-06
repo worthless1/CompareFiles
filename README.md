@@ -1,5 +1,9 @@
-Specify the name of two files in the launch parameters of the program to compare them.
+## Compare two files by contents
 
-Lvl 2: Added third-party library for document comparison
+The two text files will be compared. 
+The result will be displayed to console.
 
-Files for comparison are located in the folder src\test\resources
+### Command line options
+```
+java -jar FileComparator.jar [file1] [file2]
+```

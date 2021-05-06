@@ -25,7 +25,7 @@ class CompareDocsTest {
     }
 
     @Test
-    public void comparison() throws IOException {
+    public void testComparison() throws IOException {
         File file1 = new File(getPath("1.txt"));
         File file2 = new File(getPath("2.txt"));
         List<DiffRow> result = new ArrayList<DiffRow>();
@@ -42,7 +42,7 @@ class CompareDocsTest {
     }
 
     @Test
-    public void comparisonRussian() throws IOException {
+    public void testComparisonRussian() throws IOException {
         File file1 = new File(getPath("1russian.txt"));
         File file2 = new File(getPath("2russian.txt"));
         List<DiffRow> result = new ArrayList<DiffRow>();
@@ -69,8 +69,7 @@ class CompareDocsTest {
     }
 
     @Test
-    public void testComparisonIdenticalFileNames() throws IOException {
-
+    public void testComparisonIdenticalFileNames() {
         File file1 = new File(getPath("1.txt"));
         File file2 = new File(getPath("1.txt"));
         Assertions.assertThrows(FileNotFoundException.class, () -> cd.comparison(file1, file2));

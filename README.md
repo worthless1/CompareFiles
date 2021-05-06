@@ -1,3 +1,9 @@
-Specify the name of two files in the launch parameters of the program to compare them.
+## Compare two files by contents
 
-lvl 4: Added JUnit tests.
+The two text files will be compared. 
+The result will be displayed to console.
+
+### Command line options
+```
+java -jar FileComparator.jar [file1] [file2]
+```

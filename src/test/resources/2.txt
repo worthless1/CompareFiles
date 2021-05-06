@@ -1,3 +1,8 @@
 Hello
-There is something!
-Bye!
+Privet
+There is something
+Bye
+zzzzzzzz
+xxxxxxxx
+cccccc
+End of file!

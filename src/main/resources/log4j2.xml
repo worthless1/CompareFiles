@@ -7,9 +7,6 @@
  
     <Appenders>
  
-        <Console name="Console" target="SYSTEM_OUT" follow="true">
-            <PatternLayout pattern="${LOG_PATTERN}"/>
-        </Console>
          
         <RollingFile name="debugLog" fileName="logs/debug.log"
             filePattern="target/rolling2/dubug-%d{MM-dd-yy-HH-mm-ss}-%i.log">
@@ -40,7 +37,6 @@
 
             <AppenderRef ref="debugLog"  />
 	    <AppenderRef ref="infoLog"  />
-            <AppenderRef ref="Console"/>
 	    
         </Root>
  

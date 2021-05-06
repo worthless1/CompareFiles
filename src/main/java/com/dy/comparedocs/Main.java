@@ -1,22 +1,23 @@
-package mypackage;
+package com.dy.comparedocs;
 
+import com.github.difflib.text.DiffRow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
-        TreeMap<Integer, String> diff = new TreeMap<>();
-
         CompareDocs cd = new CompareDocs();
+        List<DiffRow> rows = new ArrayList<DiffRow>();
         //checking the number of arguments entered
         if (args.length < 2) {
-            System.err.println("Specify filenames in the program arguments!");
+            System.err.println("Specify filenames in program arguments!");
             logger.error("File names were not specified in program arguments");
             System.exit(0);
         }
@@ -24,12 +25,17 @@ public class Main {
         File file1 = new File(args[0]);
         File file2 = new File(args[1]);
         if (file1.exists() && file2.exists()) {
-            diff = cd.comparison(args[0], args[1]);
-            cd.print(diff);
+            try {
+                rows = cd.comparison(file1, file2);
+                cd.print(rows);
+            } catch (IOException e) {
+                System.out.println("Error: " + e.getMessage());
+                logger.error(e);
+            }
         } else {
-            logger.error("File" + args[0] + " or " + args[1] + " was not found");
+            logger.error("File " + file1 + " or " + file2 + " was not found");
             System.err.printf("Check the spelling of the file name. %s or %s (The specified file cannot be found)", args[0], args[1]);
         }
-    }
 
+    }
 }

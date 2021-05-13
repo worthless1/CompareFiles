@@ -13,18 +13,16 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     // https://mvnrepository.com/artifact/io.github.java-diff-utils/java-diff-utils
     implementation group: 'io.github.java-diff-utils', name: 'java-diff-utils', version: '4.9'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
     useJUnitPlatform()
-
     testLogging {
         events "passed", "skipped", "failed"
     }
@@ -32,22 +30,4 @@ test {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
-}
-
-task dist {
-    group 'build'
-    dependsOn build
-    doLast {
-        mkdir 'build/dist'
-        copy {
-            from('build/libs')
-            into('build/dist')
-            include '*.jar'
-        }
-//        copy {
-//            from(sourceSets.main.runtimeClasspath)
-//            into('build/dist/lib')
-//            include '*.jar'
-//        }
-    }
 }

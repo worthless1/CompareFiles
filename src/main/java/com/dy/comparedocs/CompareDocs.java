@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompareDocs {
-
     private static final Logger logger = LogManager.getLogger(CompareDocs.class);
 
     public List<DiffRow> comparison(File file1, File file2) throws IOException {
@@ -50,5 +49,4 @@ public class CompareDocs {
         }
         logger.debug("Lines printed successfully");
     }
-
 }

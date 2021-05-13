@@ -3,16 +3,25 @@ package com.dy.comparedocs;
 import com.github.difflib.text.DiffRow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    private static final Logger logger = LogManager.getLogger(Main.class);
+@SpringBootApplication
+public class FileComparatorApplication implements CommandLineRunner {
+    private static final Logger logger = LogManager.getLogger(FileComparatorApplication.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        SpringApplication.run(FileComparatorApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) {
         CompareDocs cd = new CompareDocs();
         List<DiffRow> rows = new ArrayList<DiffRow>();
         //checking the number of arguments entered
@@ -36,6 +45,6 @@ public class Main {
             logger.error("File " + file1 + " or " + file2 + " was not found");
             System.err.printf("Check the spelling of the file name. %s or %s (The specified file cannot be found)", args[0], args[1]);
         }
-
     }
+
 }

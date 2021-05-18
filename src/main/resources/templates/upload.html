@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Загрузка файлов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button {
+            background: #077a4c;
+            color: white;
+            font-size: 12pt;
+            padding: 8px 16px;
+            border: none;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #066640;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Compare text files</h1>
+<hr/>
+<h4>Upload two text files to compare them. The result will be displayed below.</h4>
+<form method="POST" th:action="@{/uploadFile}" enctype="multipart/form-data">
+    <label>original file</label><br>
+    <input type="file" name="file1"/> <br/><br/>
+    <label>modified file</label><br>
+    <input type="file" name="file2"/> <br/><br/>
+    <button type="submit">Compare files</button>
+</form>
+<hr/>
+<div th:if="${rows}" th:each="row : ${rows}">
+    <p th:text="${row}"/>
+</div>
+
+</body>
+</html>
